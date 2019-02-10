@@ -1,0 +1,133 @@
+<head>
+    <title>N.O.D.E</title>
+
+    <!--
+        <meta http-equiv="refresh" content="15" >
+    -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<div class="container-fluid bg-transparent">
+
+    <nav class="navbar navbar-light bg-light sticky-top shadow-sm">
+        <span class="navbar-brand mb-0 h1"><b>N.O.D.E</b></span>
+
+        <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admin">Admin Login</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                Made with love 😘
+            </span>
+        </div>
+    </nav>
+    <br>
+
+    <div class="jumbotron shadow-lg bg-info">
+        <div class="col text-center text-white">
+            <br>
+            <h2>Total Points:</h2>
+            <h1>{{ total }}</h1>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col align-self-start">
+            <h3>Anna:</h3>
+            <h2>{{ anna }}</h2>
+        </div>
+        <div class="col align-self-end text-right">
+            <h3>Tobin:</h3>
+            <h2>{{ tobin }}</h2>
+        </div>
+    </div>
+
+    <hr>
+    <div class="row no-gutters">
+        <div class="col-12">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Recent Events</th>
+                    </tr>
+                </thead>
+                {% if event_list %}
+                <tbody>
+                    {% for e in event_list %}
+                    <tr>
+                        <th scope="row">{{ e.get_event_scoree_display }} scored <b>{{ e.point.point_value }}</b>
+                            pt(s) on {{ e.event_time }} for <i>'{{ e.point.point_name }}'</i>
+                        </th>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <p>No events exist!</p>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row text-center">
+        <div class="col">
+            <div class="form-group">
+                <form action="/score" method="post" name="point select">
+                    {% csrf_token %}
+                    {% if point_list %}
+                    <p>Select from the available points: </p>
+                    <select class="form-control form-control-lg" name="Points">
+                        {% for p in point_list %}
+                        {% if p.point_active %}
+                        <option value="{{ p.id }}">
+                            {{ p }}
+                        </option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+            </div>
+            <div class="form-group">
+                {% else %}
+                <p>No points exist!</p>
+                {% endif %}
+                <p>Who scored? </p>
+                <select class="form-control form-control-lg" name="Scoree">
+                    <option value="BTH">
+                        Both of us
+                    </option>
+                    <option value="AMK">
+                        Annaleise
+                    </option>
+                    <option value="TDS">
+                        Tobin
+                    </option>
+                </select>
+            </div>
+            <input type="submit" class="btn btn-info btn-lg btn-block" value="Submit">
+        </div>
+        </form>
+    </div>
+</div>
+<hr>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+</div>
