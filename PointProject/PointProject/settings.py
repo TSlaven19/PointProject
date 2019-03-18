@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "compressor",
+    # 'compressor',
 ]
 
 MIDDLEWARE = [
@@ -125,19 +125,19 @@ STATIC_URL = '/static/'
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder'
+    # 'compressor.finders.CompressorFinder'
 ]
 
 # Cache
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': 'unix:/tmp/memcached.sock',
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#         'LOCATION': 'unix:/tmp/memcached.sock',
+#     }
+# }
 
-# Compress
+# # Compress
 
-COMPRESS_ROOT = '/comp/'
-COMPRESS_ENABLED = True
+# COMPRESS_ROOT = '/comp/'
+# COMPRESS_ENABLED = True
