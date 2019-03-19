@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'compressor',
+    "compressor",
+    "cssmin",
+    "jsmin",
 ]
 
 MIDDLEWARE = [
@@ -121,11 +123,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/static/'
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # 'compressor.finders.CompressorFinder'
+    'compressor.finders.CompressorFinder'
 ]
 
 # Cache
@@ -137,7 +140,14 @@ STATICFILES_FINDERS = [
 #     }
 # }
 
-# # Compress
+# Compress
 
-# COMPRESS_ROOT = '/comp/'
-# COMPRESS_ENABLED = True
+COMPRESS_ENABLED = True
+COMPRESS_ROOT = STATIC_URL  # django compressor
+COMPRESS_OFFLINE = True
+
+if not COMPRESS_ENABLED:  # django compressor
+    COMPRESS_ENABLED = True
+    COMPRESS_CSS_FILTERS = ["compressor.filters.cssmin.CSSMinFilter"]
+    COMPRESS_JS_FILTERS = [
+        "compressor.filters.jsmin.JSMinFilter"]  # django compressor
