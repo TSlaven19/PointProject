@@ -3,7 +3,8 @@
 
     <meta http-equiv="refresh" content="60">
 
-    <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
+    <link
+        href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
         rel="icon" type="image/x-icon" />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
@@ -16,27 +17,35 @@
 <div class="container-fluid bg-transparent">
 
     <nav class="navbar navbar-light bg-light sticky-top shadow-sm">
-        <span class="navbar-brand mb-0 h1"><b>N.O.D.E</b></span>
-
-        <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand mb-0 h1" href="#"><b>N.O.D.E</b></a>
+        <button class="navbar-toggler navbar-dark bg-danger" type="button" data-toggle="collapse"
+            data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
+                <!-- <li>
+                    <div class="progress" style="margin-top: 10px;">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 100/2%;" aria-valuenow="50"
+                            aria-valuemin="0" aria-valuemax="1000">Total Points: {{ total }}</div>
+                    </div>
+                </li> -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="/admin">Admin Login</a>
-                </li>
+                        <a class="nav-link" href="/admin">Admin Login</a>
+                    </li>
             </ul>
             <span class="navbar-text">
-                Made with love 😘
+                Season Two -
+            </span>
+            <span class="navbar-text">
+                made with extra love 😘
             </span>
         </div>
     </nav>
     <br>
 
-    <div class="jumbotron shadow-lg bg-info">
+    <div class="jumbotron progress-bar-striped progress-bar-animated bg-danger shadow-lg">
         <div class="col text-center text-white">
             <br>
             <h2>Total Points:</h2>
@@ -116,7 +125,7 @@
                     </option>
                 </select>
             </div>
-            <input type="submit" class="btn btn-info btn-lg btn-block" value="Submit">
+            <input type="submit" class="btn btn-danger btn-lg btn-block" value="Submit">
         </div>
         </form>
     </div>
@@ -126,11 +135,14 @@
     <a class="nav-link" href="/special">Special?</a>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
     crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
 
 </div>
