@@ -38,9 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "compressor",
-    "cssmin",
-    "jsmin",
 ]
 
 MIDDLEWARE = [
@@ -128,26 +125,4 @@ STATIC_ROOT = '/static/'
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder'
 ]
-
-# Cache
-
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-#         'LOCATION': 'unix:/tmp/memcached.sock',
-#     }
-# }
-
-# Compress
-
-COMPRESS_ENABLED = True
-COMPRESS_ROOT = STATIC_URL  # django compressor
-COMPRESS_OFFLINE = True
-
-if not COMPRESS_ENABLED:  # django compressor
-    COMPRESS_ENABLED = True
-    COMPRESS_CSS_FILTERS = ["compressor.filters.cssmin.CSSMinFilter"]
-    COMPRESS_JS_FILTERS = [
-        "compressor.filters.jsmin.JSMinFilter"]  # django compressor
